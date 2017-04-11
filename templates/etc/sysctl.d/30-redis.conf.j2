@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+
+{% if redis__overcommit_memory_enable | bool %}
+vm.overcommit_memory = 1
+{% endif %}
