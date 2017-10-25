@@ -25,6 +25,9 @@ Added
   a background save if it uses more than half of the available memory with
   overcommit disabled. [scibi_]
 
+- Disable Transparent Huge Pages by default. THP create latency and memory
+  usage issues with Redis. [scibi_]
+
 Fixed
 ~~~~~
 

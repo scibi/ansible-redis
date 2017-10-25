@@ -1,0 +1,21 @@
+---
+
+- name: Install disable-transparent-hugepages unit file
+  template:
+    src: 'etc/systemd/system/disable-transparent-hugepages.service.j2'
+    dest: '/etc/systemd/system/disable-transparent-hugepages.service'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  register: redis__register_disable_thp_unit_install
+
+- name: Reload systemd daemons
+  command: systemctl daemon-reload
+  when: redis__register_disable_thp_unit_install|changed
+
+- name: Start disable-transparent-hugepages service
+  service:
+    name: 'disable-transparent-hugepages'
+    state: 'started'
+    enabled: True
+  when: redis__register_disable_thp_unit_install|changed

@@ -248,6 +248,13 @@ redis__server_maxmemory_policy: 'volatile-lru'
 redis__overcommit_memory_enable: True
 
                                                                    # ]]]
+# .. envvar:: redis__transparent_huge_pages_disable [[[
+#
+# Disable kernel.mm.transparent_hugepage.enabled. Transparent Huge Pages (THP)
+# create latency and memory usage issues with Redis.
+redis__transparent_huge_pages_disable: True
+
+                                                                   # ]]]
 # .. envvar:: redis__server_maxmemory_samples [[[
 #
 # Number of samples taken by Redis Server to perform memory management
